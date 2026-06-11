@@ -12,15 +12,37 @@
 }
 
 html {
-  background-color: #1a0d04;
+  background-color: #1a0900;
   min-height: 100%;
 }
 
 body {
-  background-color: var(--brown-dark);
+  background-color: #2a1506;
   background-image:
-    repeating-linear-gradient(90deg, rgba(0,0,0,.07) 0px, rgba(0,0,0,.07) 2px, transparent 2px, transparent 60px),
-    repeating-linear-gradient(0deg,  rgba(0,0,0,.07) 0px, rgba(0,0,0,.07) 2px, transparent 2px, transparent 80px);
+    /* plank dividers */
+    repeating-linear-gradient(
+      180deg,
+      rgba(0,0,0,.55) 0px, rgba(0,0,0,.55) 3px,
+      transparent 3px, transparent 88px
+    ),
+    /* grain highlight */
+    repeating-linear-gradient(
+      178deg,
+      rgba(255,255,255,.03) 0px, rgba(255,255,255,.03) 1px,
+      transparent 1px, transparent 12px
+    ),
+    /* grain shadow */
+    repeating-linear-gradient(
+      182deg,
+      rgba(0,0,0,.12) 0px, rgba(0,0,0,.12) 1px,
+      transparent 1px, transparent 18px
+    ),
+    /* plank color variation */
+    repeating-linear-gradient(
+      180deg,
+      rgba(80,35,5,.4) 0px, rgba(80,35,5,.4) 44px,
+      rgba(60,22,3,.4) 44px, rgba(60,22,3,.4) 88px
+    );
   font-family: 'IM Fell English', serif;
   color: var(--brown-dark);
   min-height: 100vh;
@@ -277,6 +299,27 @@ body {
   min-height: 520px;
   border: none;
   border-radius: 4px;
+}
+
+/* ── SCROLL FADE-IN ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── DUST PARTICLES CANVAS ── */
+#dust-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* ── FOOTER ── */

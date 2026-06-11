@@ -11,6 +11,7 @@
 
   <!-- ═══ HERO ═══ -->
   <section class="hero">
+    <canvas id="dust-canvas"></canvas>
     <div class="wanted-badge">⭐ Celebración Especial ⭐</div>
 
     <div class="poster-wrap">
@@ -20,7 +21,7 @@
   </section>
 
   <!-- ═══ EVENT DETAILS ═══ -->
-  <div class="section">
+  <div class="section fade-in">
     <div class="card card-inner-br">
       <h2 class="section-title">Detalles del Evento</h2>
       <div class="divider"><span>★</span></div>
@@ -47,7 +48,7 @@
   </div>
 
   <!-- ═══ VENUE ═══ -->
-  <div class="section">
+  <div class="section fade-in">
     <div class="card card-inner-br">
       <h2 class="section-title">El Lugar</h2>
       <div class="divider"><span>★</span></div>
@@ -63,7 +64,7 @@
   </div>
 
   <!-- ═══ HOTELS ═══ -->
-  <div class="section">
+  <div class="section fade-in">
     <div class="card card-inner-br">
       <h2 class="section-title">Hoteles</h2>
       <div class="divider"><span>★</span></div>
@@ -87,11 +88,34 @@
       <a href="https://www.marriott.com/en-us/hotels/mgmap-fairfield-inn-and-suites-montgomery-airport-south/photos/" target="_blank" rel="noopener" class="btn">
         <span class="btn-icon">Reservar Hotel</span>
       </a>
+
+
+      <div class="divider" style="margin-top:28px;"><span>★</span></div>
+
+      <p class="hotel-name">Holiday Inn</p>
+
+      <img src="gallery/holiday_inn.avif" alt="Holiday Inn" class="venue-photo"
+           onerror="this.outerHTML='<div class=\'venue-placeholder\'>🏨<br><br>Holiday Inn</div>'" />
+
+      <a href="https://www.ihg.com/holidayinn/hotels/us/en/montgomery/mgmhs/hoteldetail?cm_mmc=GoogleMaps-_-HI-_-US-_-MGMHS" target="_blank" rel="noopener" class="btn">
+        <span class="btn-icon">Reservar Hotel</span>
+      </a>
+
+      <div class="divider" style="margin-top:28px;"><span>★</span></div>
+
+      <p class="hotel-name">Hampton Inn</p>
+
+      <img src="gallery/hampton_inn.avif" alt="Hampton Inn" class="venue-photo"
+           onerror="this.outerHTML='<div class=\'venue-placeholder\'>🏨<br><br>Hampton Inn</div>'" />
+
+      <a href="https://www.hilton.com/en/hotels/mgmhhhx-hampton-montgomery-south-airport/?SEO_id=GMB-AMER-HX-MGMHHHX&y_source=1_MjA4NDYyMy03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D" target="_blank" rel="noopener" class="btn">
+        <span class="btn-icon">Reservar Hotel</span>
+      </a>
     </div>
   </div>
 
   <!-- ═══ RSVP ═══ -->
-  <div class="section">
+  <div class="section fade-in">
     <div class="card card-inner-br">
       <h2 class="section-title">Confirma tu Asistencia</h2>
       <div class="divider"><span>★</span></div>
@@ -108,5 +132,57 @@
     ✦ &nbsp; Con cariño, la familia Sánchez &nbsp; ✦
   </footer>
 
+  <script>
+    // ── Scroll fade-in ──
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── Dust particles ──
+    const canvas = document.getElementById('dust-canvas');
+    const ctx    = canvas.getContext('2d');
+    const hero   = canvas.parentElement;
+
+    function resize() {
+      canvas.width  = hero.offsetWidth;
+      canvas.height = hero.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const COLORS = ['rgba(201,168,76,', 'rgba(200,134,74,', 'rgba(245,230,200,'];
+    const particles = Array.from({ length: 55 }, () => ({
+      x:     Math.random() * canvas.width,
+      y:     Math.random() * canvas.height,
+      r:     Math.random() * 1.8 + 0.4,
+      alpha: Math.random() * 0.35 + 0.05,
+      dx:    (Math.random() - 0.5) * 0.3,
+      dy:   -(Math.random() * 0.4 + 0.1),
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+    }));
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.color + p.alpha + ')';
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.y < -4) { p.y = canvas.height + 4; p.x = Math.random() * canvas.width; }
+        if (p.x < -4) p.x = canvas.width + 4;
+        if (p.x > canvas.width + 4) p.x = -4;
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
 </body>
 </html>
