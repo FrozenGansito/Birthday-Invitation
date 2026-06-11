@@ -18,15 +18,9 @@ html {
 
 body {
   background-color: #5c2a0a;
-  background-image:
-    repeating-linear-gradient(
-      180deg,
-      #0d0400      0px,  #0d0400      5px,
-      #7a3810     5px,  #7a3810     46px,
-      #5c2a0a     46px, #5c2a0a     50px,
-      #0d0400     50px, #0d0400     55px,
-      #6b3010     55px, #6b3010     96px
-    );
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='140'%3E%3Crect width='1' height='6' fill='%230d0400'/%3E%3Crect y='6' width='1' height='64' fill='%237a3810'/%3E%3Crect y='70' width='1' height='6' fill='%230d0400'/%3E%3Crect y='76' width='1' height='64' fill='%234e2008'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 100% 140px;
   font-family: 'IM Fell English', serif;
   color: var(--brown-dark);
   min-height: 100vh;
@@ -52,6 +46,23 @@ body {
   pointer-events: none;
 }
 
+@keyframes flicker {
+  0%, 100% { filter: brightness(1); }
+  10%       { filter: brightness(1); }
+  11%       { filter: brightness(0.15); }
+  13%       { filter: brightness(1); }
+  14%       { filter: brightness(0.4); }
+  16%       { filter: brightness(1); }
+  45%       { filter: brightness(1); }
+  46%       { filter: brightness(0.1); }
+  49%       { filter: brightness(1); }
+  50%       { filter: brightness(0.3); }
+  52%       { filter: brightness(1); }
+  75%       { filter: brightness(1); }
+  76%       { filter: brightness(0.2); }
+  78%       { filter: brightness(1); }
+}
+
 .wanted-badge {
   background: var(--red-badge);
   color: var(--gold-light);
@@ -63,6 +74,8 @@ body {
   border-radius: 3px;
   margin-bottom: 30px;
   text-transform: uppercase;
+  animation: flicker 6s infinite;
+  will-change: filter;
 }
 
 /* Poster image */
@@ -249,6 +262,12 @@ body {
   cursor: pointer;
   width: 100%;
   justify-content: center;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 8px rgba(0,0,0,.4);
 }
 
 
