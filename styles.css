@@ -18,15 +18,41 @@ html {
 
 body {
   background-color: #5c2a0a;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='140'%3E%3Crect width='1' height='6' fill='%230d0400'/%3E%3Crect y='6' width='1' height='64' fill='%237a3810'/%3E%3Crect y='70' width='1' height='6' fill='%230d0400'/%3E%3Crect y='76' width='1' height='64' fill='%234e2008'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 100% 140px;
   font-family: 'IM Fell English', serif;
   color: var(--brown-dark);
   min-height: 100vh;
   max-width: 430px;
   margin: 0 auto;
   box-shadow: 0 0 60px rgba(0,0,0,.8);
+}
+
+/* ── LANGUAGE BAR ── */
+.lang-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 20px;
+  background: var(--brown-dark);
+  border-bottom: 2px solid var(--gold);
+}
+
+.lang-btn {
+  font-family: 'Rye', cursive;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  padding: 10px 32px;
+  border: 2px solid var(--gold);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--gold);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+
+.lang-btn.active {
+  background: var(--gold);
+  color: var(--brown-dark);
 }
 
 /* ── HERO ── */
@@ -76,6 +102,119 @@ body {
   text-transform: uppercase;
   animation: flicker 6s infinite;
   will-change: filter;
+}
+
+/* ── INTRO CARD ── */
+.intro-card {
+  background: var(--parchment);
+  border: 3px solid var(--brown-mid);
+  border-radius: 6px;
+  padding: 28px 24px 32px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,.5), inset 0 0 60px rgba(139,106,62,.15);
+  position: relative;
+}
+
+.intro-card::before { content: '✦'; position: absolute; top: 10px; left: 14px; color: var(--gold); font-size: 1.4rem; }
+.intro-card::after  { content: '✦'; position: absolute; top: 10px; right: 14px; color: var(--gold); font-size: 1.4rem; }
+
+.intro-wanted {
+  font-family: 'Rye', cursive;
+  font-size: clamp(1.2rem, 5vw, 1.6rem);
+  color: var(--red-badge);
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+}
+
+.intro-for {
+  font-family: 'IM Fell English', serif;
+  font-size: 1.6rem;
+  color: var(--brown-mid);
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+.intro-years {
+  font-family: 'Rye', cursive;
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  color: var(--brown-mid);
+  letter-spacing: 0.1em;
+  line-height: 1;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.intro-name {
+  font-family: 'Rye', cursive;
+  font-size: clamp(2.4rem, 10vw, 3.4rem);
+  color: var(--brown-dark);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.photo-wrap {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 3px solid var(--brown-mid);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.photo-wrap img {
+  width: 100%;
+  display: block;
+}
+
+.photo-wrap {
+  cursor: pointer;
+}
+
+
+#lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+#lightbox.open {
+  display: flex;
+}
+
+#lightbox-img {
+  max-width: 95vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border: 3px solid var(--gold);
+  border-radius: 4px;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 260px;
+  background: var(--parchment-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Rye', cursive;
+  font-size: 0.9rem;
+  color: var(--brown-mid);
+  text-align: center;
+  padding: 20px;
+}
+
+.intro-desc {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--brown-mid);
+  line-height: 1.6;
+  font-style: italic;
 }
 
 /* Poster image */

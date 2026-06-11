@@ -4,42 +4,103 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>60 Años de Pepe | Se Buscan Cómplices</title>
+  <meta name="robots" content="noindex, nofollow" />
   <link href="https://fonts.googleapis.com/css2?family=Rye&family=Playfair+Display:wght@400;700&family=IM+Fell+English&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+  <!-- ═══ LANGUAGE BAR ═══ -->
+  <div class="lang-bar">
+    <button class="lang-btn active" data-lang="es">Español</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
+
   <!-- ═══ HERO ═══ -->
   <section class="hero">
-    <div class="wanted-badge">⭐ Celebración Especial ⭐</div>
+    <div class="wanted-badge"
+         data-i18n
+         data-es="⭐ Celebración Especial ⭐"
+         data-en="⭐ Special Celebration ⭐">⭐ Celebración Especial ⭐</div>
 
-    <div class="poster-wrap">
-      <img src="gallery/poster.PNG" alt="Invitación — 60 Años de Pepe"
-           onerror="this.outerHTML='<div class=\'poster-placeholder\'>📜<br><br>Coloca aquí el archivo<br><strong>poster.jpg</strong></div>'" />
+    <div class="intro-card">
+
+      <div class="intro-wanted"
+           data-i18n
+           data-es="SE BUSCAN CÓMPLICES"
+           data-en="ACCOMPLICES WANTED">SE BUSCAN CÓMPLICES</div>
+
+      <div class="intro-for"
+           data-i18n
+           data-es="para celebrar los"
+           data-en="to celebrate">para celebrar los</div>
+
+      <div class="intro-years"
+           data-i18n
+           data-es="60 AÑOS"
+           data-en="60 YEARS">60 AÑOS</div>
+
+      <div class="intro-for"
+           data-i18n
+           data-es="de"
+           data-en="of">de</div>
+
+      <div class="intro-name">PEPE<br>SANCHEZ</div>
+
+      <div class="photo-wrap" onclick="openLightbox(this.querySelector('img'))">
+        <img src="gallery/pepe.PNG" alt="Pepe"
+             onerror="this.outerHTML='<div class=\'photo-placeholder\'>🤠<br><br>Coloca aquí la foto<br><strong>pepe.jpg</strong></div>'" />
+      </div>
+
+      <!-- Lightbox -->
+      <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Pepe" />
+      </div>
+
+      <div class="intro-desc"
+           data-i18n
+           data-es="Un hombre de leyenda cumple 60 años.<br>Ven a celebrar con nosotros."
+           data-en="A legendary man turns 60.<br>Come celebrate with us.">Un hombre de leyenda cumple 60 años.<br>Ven a celebrar con nosotros.</div>
+
     </div>
   </section>
 
   <!-- ═══ EVENT DETAILS ═══ -->
   <div class="section">
     <div class="card card-inner-br">
-      <h2 class="section-title">Detalles del Evento</h2>
+      <h2 class="section-title"
+          data-i18n
+          data-es="Detalles del Evento"
+          data-en="Event Details">Detalles del Evento</h2>
       <div class="divider"><span>★</span></div>
 
       <div class="details-grid">
 
         <div class="detail-item">
-          <div class="detail-label">Fecha</div>
-          <div class="detail-value">Sábado<br>25 de Julio, 2026</div>
+          <div class="detail-label"
+               data-i18n
+               data-es="Fecha"
+               data-en="Date">Fecha</div>
+          <div class="detail-value"
+               data-i18n
+               data-es="Sábado&lt;br&gt;25 de Julio, 2026"
+               data-en="Saturday&lt;br&gt;July 25, 2026">Sábado<br>25 de Julio, 2026</div>
         </div>
 
         <div class="detail-item">
-          <div class="detail-label">Hora</div>
+          <div class="detail-label"
+               data-i18n
+               data-es="Hora"
+               data-en="Time">Hora</div>
           <div class="detail-value">4:00 PM</div>
         </div>
 
         <div class="detail-item">
-          <div class="detail-label">Lugar</div>
-          <div class="detail-value">183 Bridlewood Ln, Hope Hull, AL 36043</div>
+          <div class="detail-label"
+               data-i18n
+               data-es="Lugar"
+               data-en="Venue">Lugar</div>
+          <div class="detail-value">183 Bridlewood Ln, <br> Hope Hull, AL 36043</div>
         </div>
 
       </div>
@@ -49,7 +110,10 @@
   <!-- ═══ VENUE ═══ -->
   <div class="section">
     <div class="card card-inner-br">
-      <h2 class="section-title">El Lugar</h2>
+      <h2 class="section-title"
+          data-i18n
+          data-es="El Lugar"
+          data-en="The Venue">El Lugar</h2>
       <div class="divider"><span>★</span></div>
 
       <img src="gallery/venue.png" alt="Foto del Lugar" class="venue-photo"
@@ -57,7 +121,10 @@
 
       <a href="https://www.google.com/maps/place/183+Bridlewood+Ln,+Hope+Hull,+AL+36043/@32.2264392,-86.5269795,1076m/data=!3m2!1e3!4b1!4m6!3m5!1s0x888e613728f83f99:0xb0303c568c1c05e5!8m2!3d32.2264392!4d-86.5244099!16s%2Fg%2F11n44v8pjp?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
       target="_blank" rel="noopener" class="btn">
-        <span class="btn-icon">Cómo Llegar</span>
+        <span class="btn-icon"
+              data-i18n
+              data-es="Cómo Llegar"
+              data-en="Get Directions">Cómo Llegar</span>
       </a>
     </div>
   </div>
@@ -65,7 +132,10 @@
   <!-- ═══ HOTELS ═══ -->
   <div class="section">
     <div class="card card-inner-br">
-      <h2 class="section-title">Hoteles</h2>
+      <h2 class="section-title"
+          data-i18n
+          data-es="Hoteles"
+          data-en="Hotels">Hoteles</h2>
       <div class="divider"><span>★</span></div>
 
       <p class="hotel-name">Comfort Suites</p>
@@ -74,7 +144,10 @@
            onerror="this.outerHTML='<div class=\'venue-placeholder\'>🏨<br><br>Comfort Suites</div>'" />
 
       <a href="https://www.choicehotels.com/alabama/montgomery/comfort-suites-hotels/al269?mc=llgoxxpx" target="_blank" rel="noopener" class="btn">
-        <span class="btn-icon">Reservar Hotel</span>
+        <span class="btn-icon"
+              data-i18n
+              data-es="Reservar Hotel"
+              data-en="Book Hotel">Reservar Hotel</span>
       </a>
 
       <div class="divider" style="margin-top:28px;"><span>★</span></div>
@@ -85,7 +158,10 @@
            onerror="this.outerHTML='<div class=\'venue-placeholder\'>🏨<br><br>Fairfield Hotel</div>'" />
 
       <a href="https://www.marriott.com/en-us/hotels/mgmap-fairfield-inn-and-suites-montgomery-airport-south/photos/" target="_blank" rel="noopener" class="btn">
-        <span class="btn-icon">Reservar Hotel</span>
+        <span class="btn-icon"
+              data-i18n
+              data-es="Reservar Hotel"
+              data-en="Book Hotel">Reservar Hotel</span>
       </a>
 
       <div class="divider" style="margin-top:28px;"><span>★</span></div>
@@ -96,7 +172,10 @@
            onerror="this.outerHTML='<div class=\'venue-placeholder\'>🏨<br><br>Holiday Inn</div>'" />
 
       <a href="https://www.ihg.com/holidayinn/hotels/us/en/montgomery/mgmhs/hoteldetail?cm_mmc=GoogleMaps-_-HI-_-US-_-MGMHS" target="_blank" rel="noopener" class="btn">
-        <span class="btn-icon">Reservar Hotel</span>
+        <span class="btn-icon"
+              data-i18n
+              data-es="Reservar Hotel"
+              data-en="Book Hotel">Reservar Hotel</span>
       </a>
 
       <div class="divider" style="margin-top:28px;"><span>★</span></div>
@@ -107,7 +186,10 @@
            onerror="this.outerHTML='<div class=\'venue-placeholder\'>🏨<br><br>Hampton Inn</div>'" />
 
       <a href="https://www.hilton.com/en/hotels/mgmhhhx-hampton-montgomery-south-airport/?SEO_id=GMB-AMER-HX-MGMHHHX&y_source=1_MjA4NDYyMy03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D" target="_blank" rel="noopener" class="btn">
-        <span class="btn-icon">Reservar Hotel</span>
+        <span class="btn-icon"
+              data-i18n
+              data-es="Reservar Hotel"
+              data-en="Book Hotel">Reservar Hotel</span>
       </a>
     </div>
   </div>
@@ -115,7 +197,10 @@
   <!-- ═══ RSVP ═══ -->
   <div class="section">
     <div class="card card-inner-br">
-      <h2 class="section-title">Confirma tu Asistencia</h2>
+      <h2 class="section-title"
+          data-i18n
+          data-es="Confirma tu Asistencia"
+          data-en="Confirm Your Attendance">Confirma tu Asistencia</h2>
       <div class="divider"><span>★</span></div>
       <div class="rsvp-placeholder">
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf5dez6bz-Ygrj4vrVR5QqFcweGwrzr9-SA_3LfCY7tt33GgA/viewform?embedded=true"
@@ -127,8 +212,41 @@
 
   <!-- ═══ FOOTER ═══ -->
   <footer>
-    ✦ &nbsp; Con cariño, la familia Sánchez &nbsp; ✦
+    <span data-i18n
+          data-es="✦ &amp;nbsp; Con cariño, la familia Sánchez &amp;nbsp; ✦"
+          data-en="✦ &amp;nbsp; With love, the Sánchez family &amp;nbsp; ✦">✦ &nbsp; Con cariño, la familia Sánchez &nbsp; ✦</span>
   </footer>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        el.innerHTML = el.dataset[lang];
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      document.documentElement.lang = lang;
+      localStorage.setItem('lang', lang);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    setLang(localStorage.getItem('lang') || 'es');
+
+    function openLightbox(img) {
+      if (!img || !img.src) return;
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  </script>
 
 </body>
 </html>
