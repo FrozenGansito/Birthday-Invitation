@@ -17,14 +17,15 @@ html {
 }
 
 body {
-  background-color: #3a1a06;
+  background-color: #5c2a0a;
   background-image:
     repeating-linear-gradient(
       180deg,
-      rgba(0,0,0,.6)   0px,  rgba(0,0,0,.6)   4px,
-      rgba(90,40,8,.9)  4px,  rgba(70,28,5,.9) 48px,
-      rgba(0,0,0,.4)   48px, rgba(0,0,0,.4)   52px,
-      rgba(80,34,6,.9) 52px, rgba(58,20,4,.9) 96px
+      #0d0400      0px,  #0d0400      5px,
+      #7a3810     5px,  #7a3810     46px,
+      #5c2a0a     46px, #5c2a0a     50px,
+      #0d0400     50px, #0d0400     55px,
+      #6b3010     55px, #6b3010     96px
     );
   font-family: 'IM Fell English', serif;
   color: var(--brown-dark);
@@ -41,8 +42,6 @@ body {
   align-items: center;
   padding: 60px 20px 40px;
   position: relative;
-  min-height: 200px;
-  overflow: hidden;
 }
 
 .hero::before {
@@ -51,12 +50,6 @@ body {
   inset: 0;
   background: radial-gradient(ellipse at center, rgba(201,168,76,.08) 0%, transparent 70%);
   pointer-events: none;
-}
-
-.wanted-badge,
-.poster-wrap {
-  position: relative;
-  z-index: 2;
 }
 
 .wanted-badge {
@@ -292,29 +285,6 @@ body {
   border-radius: 4px;
 }
 
-/* ── SCROLL FADE-IN ── */
-.fade-in {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── DUST PARTICLES CANVAS ── */
-#dust-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
 
 /* ── FOOTER ── */
 footer {
